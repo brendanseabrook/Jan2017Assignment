@@ -20,3 +20,4 @@ So normally I would ask the client for way more detail before starting the code 
 * It says to default the search. This reads differently to placeholder. I will be artificually populating the searchbar on load and firing off the event.
 * I will be using auto-layout and will try to make it as nice looking as possible but I think the assignment issuer will understand that I'm not a graphic designer.
 * I will try to get this all done today (to be reasonable) however if I come across anything which is a learning experience I might as well spend a little bit of time on it.
+* The result will only be in English however I will still embed userstrings in the translate macro (because thats just a good habit to be in)
