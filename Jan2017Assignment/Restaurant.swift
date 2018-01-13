@@ -14,7 +14,8 @@ class Restaurant {
     var price:String!
     var rating:Double!
     var image_url:String!
-    var image:UIImage!
+    var image:UIImage?
+    var reviews:[Review]?
     weak var displayedOnPreview:RestaurantPreview?
     
     init?(record:[String:Any]) {
@@ -27,6 +28,21 @@ class Restaurant {
         //The following fields should be requred to be considered valid data. Records that don't have these fields should just be ignored
         guard self.id != nil else {
             return nil
+        }
+        
+        DispatchQueue.global().async {
+            YelpDataProvider.shared.getReviewsForRestaurant(id: self.id, completion: { (reviews, error) in
+                //errors for fetching reviews should be fatal.
+                //TODO log error
+                if error == nil {
+                    self.reviews = reviews
+                    if self.displayedOnPreview != nil {
+                        DispatchQueue.main.async {
+                            self.displayedOnPreview?.restaurantReview.text = self.reviews![0].text
+                        }
+                    }
+                }
+            })
         }
         
         DispatchQueue.global().async {
@@ -73,4 +89,12 @@ class Restaurant {
             return lhs.rating < rhs.rating
         })
     ]
+}
+
+class Review {
+    var text:String?
+    
+    init(record:[String:Any]) {
+        text = record["text"] as? String
+    }
 }

@@ -22,11 +22,20 @@ class RestaurantPreview : UICollectionViewCell {
         self.restaurantPrice.text = String(restaurant.price)
         self.restaurantRating.text = String(restaurant.rating)
         //TODO load review
-        self.restaurantReview.text = "TODO, load review"
+        self.restaurantReview.text = ""
         self.restaurantImage.image = nil
         if restaurant.image != nil {
             self.restaurantImage.image = restaurant.image
+        } else {
+            self.restaurantImage.image = nil
         }
+        
+        if restaurant.reviews != nil && restaurant.reviews!.count > 0 {
+            self.restaurantReview.text = restaurant.reviews![0].text
+        } else {
+            self.restaurantReview.text = ""
+        }
+        
         restaurant.displayedOnPreview = self
     }
     
