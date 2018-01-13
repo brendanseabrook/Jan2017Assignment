@@ -23,3 +23,4 @@ So normally I would ask the client for way more detail before starting the code 
 * The result will only be in English however I will still embed userstrings in the translate macro (because thats just a good habit to be in)
 * While I'm going to use unit tests I'm not going to be doing automated UI tests because that would be a little over the top
 * I'm not going to cache any data
+* The app should work on iPad however I'm not going to spend much time optimizing UI for iPad

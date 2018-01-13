@@ -63,7 +63,7 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "restaurantPreview", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "restaurantPreview", for: indexPath) as! RestaurantPreview
         
         if indexPath.row % 3 == 0 {
             cell.backgroundColor = UIColor.red
@@ -72,6 +72,8 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
         } else {
             cell.backgroundColor = UIColor.blue
         }
+        
+        cell.populateWith(restaurant: toDisplay![indexPath.row])
         
         return cell
     }

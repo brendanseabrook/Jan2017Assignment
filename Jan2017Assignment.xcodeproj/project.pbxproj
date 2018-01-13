@@ -16,6 +16,7 @@
 		A0A35A10200A481300B2DE5C /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A35A0F200A481300B2DE5C /* Restaurant.swift */; };
 		A0A35A12200A4C6F00B2DE5C /* RestaurantDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A35A11200A4C6F00B2DE5C /* RestaurantDataProvider.swift */; };
 		A0A35A14200A4FFA00B2DE5C /* RestaurantFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A35A13200A4FFA00B2DE5C /* RestaurantFlowLayout.swift */; };
+		A0A35A16200A517800B2DE5C /* RestaurantPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A35A15200A517800B2DE5C /* RestaurantPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		A0A35A0F200A481300B2DE5C /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		A0A35A11200A4C6F00B2DE5C /* RestaurantDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDataProvider.swift; sourceTree = "<group>"; };
 		A0A35A13200A4FFA00B2DE5C /* RestaurantFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFlowLayout.swift; sourceTree = "<group>"; };
+		A0A35A15200A517800B2DE5C /* RestaurantPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				A0A35A0F200A481300B2DE5C /* Restaurant.swift */,
 				A0A35A11200A4C6F00B2DE5C /* RestaurantDataProvider.swift */,
 				A0A35A13200A4FFA00B2DE5C /* RestaurantFlowLayout.swift */,
+				A0A35A15200A517800B2DE5C /* RestaurantPreview.swift */,
 			);
 			path = Jan2017Assignment;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0A35A14200A4FFA00B2DE5C /* RestaurantFlowLayout.swift in Sources */,
+				A0A35A16200A517800B2DE5C /* RestaurantPreview.swift in Sources */,
 				A0A359F1200A391E00B2DE5C /* RestaurantSearchViewController.swift in Sources */,
 				A0A35A12200A4C6F00B2DE5C /* RestaurantDataProvider.swift in Sources */,
 				A0A359EF200A391E00B2DE5C /* AppDelegate.swift in Sources */,

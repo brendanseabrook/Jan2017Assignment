@@ -12,11 +12,13 @@ class Restaurant {
     var name:String
     var price:Double
     var rating:Double
+    var review:String
     
-    init(name:String, price:Double, rating:Double) {
+    init(name:String, price:Double, rating:Double, review:String) {
         self.name = name
         self.price = price
         self.rating = rating
+        self.review = review
     }
     
     //MARK: - Sorting

@@ -24,9 +24,9 @@ class FakeDataProvider : RestaurantDataProvider {
     
     func getRestaurantsFor(searchTerm: String, completion: ([Restaurant]?, Error?) -> Void) {
         completion([
-            Restaurant.init(name: "Fake Ethiopian 1", price: 1, rating: 1),
-            Restaurant.init(name: "Fake Ethiopian 2", price: 3, rating: 3),
-            Restaurant.init(name: "Fake Ethiopian 3", price: 2, rating: 4)
+            Restaurant.init(name: "Fake Ethiopian 1", price: 1, rating: 1, review: "It's OK"),
+            Restaurant.init(name: "Fake Ethiopian 2", price: 3, rating: 3, review: "This one is better"),
+            Restaurant.init(name: "Fake Ethiopian 3", price: 2, rating: 4, review: "This is the best")
             ], nil)
     }
 
