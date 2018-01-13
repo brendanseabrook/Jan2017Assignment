@@ -29,7 +29,7 @@ class Restaurant {
             return nil
         }
         
-        DispatchQueue.main.async {
+        DispatchQueue.global().async {
             guard let url = URL(string: self.image_url!) else {
                 return
             }
@@ -44,7 +44,7 @@ class Restaurant {
             
             self.image = image
             if self.displayedOnPreview != nil {
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async {
                     self.displayedOnPreview?.restaurantImage.image = self.image
                 }
             }

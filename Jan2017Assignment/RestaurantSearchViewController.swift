@@ -15,6 +15,8 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
     @IBOutlet weak var restaurantPreviews:UICollectionView!
     
     var restaurants:[Restaurant]?
+    var sortingType:Int = 0
+    var isReversed:Bool = false
     
     func formatData(toFormat:[Restaurant]?, method:(Restaurant, Restaurant) -> Bool, isReversed:Bool) -> [Restaurant]? {
         
@@ -53,11 +55,12 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
                     alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Dismiss error OK"), style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 } else {
-                    DispatchQueue.main.sync {
-                        let method = Restaurant.sortingMethods[self.sortingPicker.selectedRow(inComponent: 0)].method
-                        let isReversed = self.sortingPicker.selectedRow(inComponent: 1) == 1
-                        
-                        self.restaurants = self.formatData(toFormat: restaurants, method: method, isReversed: isReversed)
+                    
+                    let method = Restaurant.sortingMethods[self.sortingType].method
+
+                    self.restaurants = self.formatData(toFormat: restaurants, method: method, isReversed: self.isReversed)
+                    
+                    DispatchQueue.main.async {
                         self.restaurantPreviews.reloadData()
                     }
                 }
@@ -90,10 +93,11 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        let method = Restaurant.sortingMethods[pickerView.selectedRow(inComponent: 0)].method
-        let isReversed = pickerView.selectedRow(inComponent: 1) == 1
+        self.sortingType = pickerView.selectedRow(inComponent: 0)
+        self.isReversed = pickerView.selectedRow(inComponent: 1) == 1
+        let method = Restaurant.sortingMethods[self.sortingType].method
         
-        restaurants = formatData(toFormat: restaurants, method: method, isReversed: isReversed)
+        restaurants = formatData(toFormat: restaurants, method: method, isReversed: self.isReversed)
         restaurantPreviews.reloadData()
     }
     
