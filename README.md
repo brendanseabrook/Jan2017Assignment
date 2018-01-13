@@ -17,7 +17,9 @@ So normally I would ask the client for way more detail before starting the code 
 
 * I'm not sure how to interperit the "10" restaurants part. Searching for Ethiopian should get more than 10 returns so I'm going forward assuming ~10 on screen at once. Maybe I will try to implement the infinite scroll paging to 10 at a time.
 * The instructions deliberatly use the word grid, which in iOS land points towards using a collection view rather than any kind of list view.
-* It says to default the search. This reads differently to placeholder. I will be artificually populating the searchbar on load and firing off the event.
+* It says to *default* the search. This reads differently to *placeholder*. I will be artificially populating the searchbar on load and firing off the event.
 * I will be using auto-layout and will try to make it as nice looking as possible but I think the assignment issuer will understand that I'm not a graphic designer.
 * I will try to get this all done today (to be reasonable) however if I come across anything which is a learning experience I might as well spend a little bit of time on it.
 * The result will only be in English however I will still embed userstrings in the translate macro (because thats just a good habit to be in)
+* While I'm going to use unit tests I'm not going to be doing automated UI tests because that would be a little over the top
+* I'm not going to cache any data

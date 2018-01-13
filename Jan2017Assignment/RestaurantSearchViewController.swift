@@ -29,17 +29,25 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
     
     // MARK: - Sorting
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return 2
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return sortMethods.count
+        if component == 0 {
+            return Restaurant.sortingMethods.count
+        } else {
+            return sortDirections.count
+        }
     }
     
-    private let sortMethods = ["Name", "Price"]
+    private let sortDirections = ["Ascending", "Descending"]
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return sortMethods[row]
+        if component == 0 {
+            return Restaurant.sortingMethods[row].name
+        } else {
+            return sortDirections[row]
+        }
     }
     
     // Mark: - Restaurant Collection
@@ -50,6 +58,5 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return collectionView.dequeueReusableCell(withReuseIdentifier: "restaurantPreview", for: indexPath)
     }
-    
 }
 
