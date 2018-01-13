@@ -24,3 +24,4 @@ So normally I would ask the client for way more detail before starting the code 
 * While I'm going to use unit tests I'm not going to be doing automated UI tests because that would be a little over the top
 * I'm not going to cache any data
 * The app should work on iPad however I'm not going to spend much time optimizing UI for iPad
+* While I should have helpful errors I'm not going to provide specific errors for every status code back from the API

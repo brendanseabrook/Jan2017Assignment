@@ -28,8 +28,8 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.text != nil && searchBar.text!.count > 0 {
             FakeDataProvider.shared.getRestaurantsFor(searchTerm: searchBar.text!, completion: { (restaurants, error) in
-                toDisplay = restaurants
-                restaurantPreviews.reloadData()
+                self.toDisplay = restaurants
+                self.restaurantPreviews.reloadData()
             })
         }
     }

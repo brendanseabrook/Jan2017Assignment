@@ -14,7 +14,7 @@ protocol RestaurantDataProvider {
         get
     }
     var config:URLSessionConfiguration! { get }
-    func getRestaurantsFor(searchTerm:String, completion:([Restaurant]?,RestaurantDataProviderError?) -> Void)
+    func getRestaurantsFor(searchTerm:String, completion:@escaping ([Restaurant]?,RestaurantDataProviderError?) -> Void)
 }
 
 enum RestaurantDataProviderError {
@@ -44,7 +44,7 @@ class FakeDataProvider : RestaurantDataProvider {
     
     var config: URLSessionConfiguration!
     
-    func getRestaurantsFor(searchTerm: String, completion: ([Restaurant]?, RestaurantDataProviderError?) -> Void) {
+    func getRestaurantsFor(searchTerm: String, completion: @escaping ([Restaurant]?, RestaurantDataProviderError?) -> Void) {
         completion([
             Restaurant.init(name: "Fake Ethiopian 1", price: 1, rating: 1, review: "It's OK"),
             Restaurant.init(name: "Fake Ethiopian 2", price: 3, rating: 3, review: "This one is better"),
@@ -66,7 +66,7 @@ class YelpDataProvider : RestaurantDataProvider {
         ]
     }
     
-    func getRestaurantsFor(searchTerm: String, completion: ([Restaurant]?, RestaurantDataProviderError?) -> Void) {
+    func getRestaurantsFor(searchTerm: String, completion: @escaping ([Restaurant]?, RestaurantDataProviderError?) -> Void) {
         guard let url = URL.make(string: "https://api.yelp.com/v3/businesses/search", queryComponents: [
                 "term" : searchTerm,
                 "location" : "Toronto"
@@ -79,10 +79,13 @@ class YelpDataProvider : RestaurantDataProvider {
         
         let dataTask = session.dataTask(with: url, completionHandler: { (data, response, error) in
             
-            if data == nil || error != nil {
+            if data == nil || error != nil || (response as? HTTPURLResponse)?.statusCode != 400 {
                 completion(nil, .BadRequest)
+                return
             }
             
+            //Turn all the data into [Restaurant]
+            completion([], nil)
         })
         
         dataTask.resume()
