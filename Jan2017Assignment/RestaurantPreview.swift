@@ -17,7 +17,10 @@ class RestaurantPreview : UICollectionViewCell {
     @IBOutlet weak var restaurantReview:UILabel!
     @IBOutlet weak var restaurantImage:UIImageView!
     
+    weak var restaurant:Restaurant!
+    
     func populateWith(restaurant:Restaurant) {
+        self.restaurant = restaurant
         self.restaurantName.text = restaurant.name
         self.restaurantPrice.text = String(restaurant.price)
         self.restaurantRating.text = String(restaurant.rating)

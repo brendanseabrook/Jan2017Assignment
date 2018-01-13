@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--RestaurantSearch-->
+        <!--Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RestaurantSearchViewController" customModule="Jan2017Assignment" customModuleProvider="target" sceneMemberID="viewController">
@@ -92,6 +92,7 @@
                                             <outlet property="restaurantPrice" destination="WNh-qg-vGr" id="bdH-84-WRb"/>
                                             <outlet property="restaurantRating" destination="UPQ-nw-WM8" id="cHu-qP-2PA"/>
                                             <outlet property="restaurantReview" destination="5or-uJ-GZY" id="kSB-hL-H12"/>
+                                            <segue destination="eEX-v9-xqB" kind="show" id="YnY-XR-EmJ"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -111,7 +112,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="RestaurantSearch" id="Kx4-lQ-Xan"/>
+                    <navigationItem key="navigationItem" title="Search" id="Kx4-lQ-Xan"/>
                     <connections>
                         <outlet property="restaurantPreviews" destination="TK2-rx-Sn0" id="50T-cB-MRE"/>
                         <outlet property="searchBar" destination="oyj-5K-Jqj" id="3nv-eE-gEz"/>
@@ -121,6 +122,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="479.19999999999999" y="132.68365817091455"/>
+        </scene>
+        <!--Inspect-->
+        <scene sceneID="yol-90-3eb">
+            <objects>
+                <viewController title="Inspect" id="eEX-v9-xqB" customClass="RestaurantInspectViewController" customModule="Jan2017Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jvU-XK-l5Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HSC-iU-53k"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zOT-cc-MdN"/>
+                    <connections>
+                        <outlet property="nav" destination="zOT-cc-MdN" id="cve-OM-UxQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cPC-9C-TpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1311" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pzv-Jy-zmP">

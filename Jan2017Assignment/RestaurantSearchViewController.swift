@@ -113,5 +113,9 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        (segue.destination as? RestaurantInspectViewController)?.restaurant = (sender as? RestaurantPreview)?.restaurant
+    }
 }
 
