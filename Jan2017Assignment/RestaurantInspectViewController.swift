@@ -17,6 +17,8 @@ class RestaurantInspectViewController : UIViewController {
     @IBOutlet weak var priceLabel:UILabel!
     @IBOutlet weak var rating:UILabel!
     @IBOutlet weak var ratingLabel:UILabel!
+    @IBOutlet weak var address:UILabel!
+    @IBOutlet weak var phone:UITextView!
     
     override func viewWillAppear(_ animated: Bool) {
         nav.title = restaurant?.name
@@ -25,5 +27,10 @@ class RestaurantInspectViewController : UIViewController {
         priceLabel.isHidden = restaurant!.price.count < 1
         price.text = restaurant?.price
         rating.text = restaurant?.ratingAsStars()
+        phone.text = restaurant?.phone
+        
+        if restaurant?.addresses != nil && restaurant!.addresses!.count > 0 {
+            address.text = restaurant!.addresses!.joined(separator: ", ")
+        }
     }
 }

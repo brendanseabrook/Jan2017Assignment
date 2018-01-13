@@ -16,6 +16,9 @@ class Restaurant {
     var image_url:String!
     var image:UIImage?
     var reviews:[Review]?
+    var addresses:[String]?
+    var phone:String!
+    
     weak var displayedOnPreview:RestaurantPreview?
     
     init?(record:[String:Any]) {
@@ -24,6 +27,11 @@ class Restaurant {
         self.price = record["price"] as? String ?? ""
         self.rating = record["rating"] as? Double
         self.image_url = record["image_url"] as? String
+        self.phone = record["display_phone"] as? String
+        
+        if let location = record["location"] as? [String:Any] {
+            self.addresses = location["display_address"] as? [String]
+        }
         
         //The following fields should be requred to be considered valid data. Records that don't have these fields should just be ignored
         guard self.id != nil else {
