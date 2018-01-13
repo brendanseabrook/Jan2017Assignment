@@ -22,8 +22,8 @@ class RestaurantPreview : UICollectionViewCell {
     func populateWith(restaurant:Restaurant) {
         self.restaurant = restaurant
         self.restaurantName.text = restaurant.name
-        self.restaurantPrice.text = String(restaurant.price)
-        self.restaurantRating.text = String(restaurant.rating)
+        self.restaurantPrice.text = restaurant.price
+        self.restaurantRating.text = restaurant.ratingAsStars()
         //TODO load review
         self.restaurantReview.text = ""
         self.restaurantImage.image = nil

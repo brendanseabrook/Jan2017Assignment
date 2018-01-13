@@ -12,8 +12,18 @@ class RestaurantInspectViewController : UIViewController {
     var restaurant:Restaurant?
     
     @IBOutlet weak var nav:UINavigationItem!
+    @IBOutlet weak var image:UIImageView!
+    @IBOutlet weak var price:UILabel!
+    @IBOutlet weak var priceLabel:UILabel!
+    @IBOutlet weak var rating:UILabel!
+    @IBOutlet weak var ratingLabel:UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
         nav.title = restaurant?.name
+        image.image = restaurant?.image
+        
+        priceLabel.isHidden = restaurant!.price.count < 1
+        price.text = restaurant?.price
+        rating.text = restaurant?.ratingAsStars()
     }
 }

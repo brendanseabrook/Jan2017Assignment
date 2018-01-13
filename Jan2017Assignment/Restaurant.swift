@@ -67,6 +67,22 @@ class Restaurant {
         }
     }
     
+    func ratingAsStars() -> String {
+        if self.rating < 0 || self.rating > 5 {
+            return "None"
+        } else {
+            var toReturn = ""
+            for i in stride(from: self.rating, to: 0, by: -1) {
+                if i == 0.5 {
+                    toReturn += "½"
+                } else {
+                    toReturn += "★"
+                }
+            }
+            return toReturn
+        }
+    }
+    
     //MARK: - Sorting
     class SortingMethod {
         let name:String
