@@ -14,7 +14,45 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
     @IBOutlet weak var sortingPicker:UIPickerView!
     @IBOutlet weak var restaurantPreviews:UICollectionView!
     
-    var toDisplay:[Restaurant]?
+    var restaurants:[Restaurant]?
+    var toDisplay:[Restaurant]? {
+        set {
+            DispatchQueue.main.sync {
+                if newValue != nil {
+                    restaurants = formatData(toFormat: newValue!)
+                } else {
+                    restaurants = nil
+                }
+                restaurantPreviews.reloadData()
+            }
+        }
+        get {
+            return restaurants
+        }
+    }
+    
+    func formatData(toFormat:[Restaurant]?) -> [Restaurant]? {
+        
+        if toFormat == nil {
+            return nil
+        }
+        
+        var toReturn = toFormat!.sorted(by: Restaurant.sortingMethods[sortingPicker.selectedRow(inComponent: 0)].method)
+        
+        if sortingPicker.selectedRow(inComponent: 1) == 1 {
+            toReturn = toReturn.reversed()
+        }
+        
+        return toReturn
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
 
     public override func viewWillAppear(_ animated: Bool) {
         searchBar.text = "Ethiopian"
@@ -27,9 +65,18 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
     // MARK: - Searchbar
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.text != nil && searchBar.text!.count > 0 {
-            FakeDataProvider.shared.getRestaurantsFor(searchTerm: searchBar.text!, completion: { (restaurants, error) in
-                self.toDisplay = restaurants
-                self.restaurantPreviews.reloadData()
+            YelpDataProvider.shared.getRestaurantsFor(searchTerm: searchBar.text!, completion: { (restaurants, error) in
+                
+                if error != nil {
+                    let alert = UIAlertController(title: NSLocalizedString("Oh no.", comment: "Friendly exclamation that something went wrong"), message: error!.message(), preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Dismiss error OK"), style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    self.toDisplay = restaurants
+                    DispatchQueue.main.sync {
+                        self.restaurantPreviews.reloadData()
+                    }
+                }
             })
         }
     }
@@ -55,6 +102,11 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
         } else {
             return sortDirections[row]
         }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        restaurants = formatData(toFormat: toDisplay)
+        restaurantPreviews.reloadData()
     }
     
     // Mark: - Restaurant Collection

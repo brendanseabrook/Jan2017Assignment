@@ -12,8 +12,6 @@ class RestaurantFlowLayout : UICollectionViewFlowLayout {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-//        self.minimumInteritemSpacing = 0
-//        self.minimumLineSpacing = 0
     }
     
     override var itemSize: CGSize {

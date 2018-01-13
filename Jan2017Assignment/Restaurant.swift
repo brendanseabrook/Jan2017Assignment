@@ -9,16 +9,23 @@
 import Foundation
 
 class Restaurant {
-    var name:String
-    var price:Double
-    var rating:Double
-    var review:String
+    var id:String!
+    var name:String!
+    var price:String!
+    var rating:Double!
+    var image_url:String!
     
-    init(name:String, price:Double, rating:Double, review:String) {
-        self.name = name
-        self.price = price
-        self.rating = rating
-        self.review = review
+    init?(record:[String:Any]) {
+        self.id = record["id"] as? String
+        self.name = record["name"] as? String
+        self.price = record["price"] as? String ?? ""
+        self.rating = record["rating"] as? Double
+        self.image_url = record["image_url"] as? String
+        
+        //The following fields should be requred to be considered valid data. Records that don't have these fields should just be ignored
+        guard self.id != nil else {
+            return nil
+        }
     }
     
     //MARK: - Sorting
@@ -37,7 +44,7 @@ class Restaurant {
             return lhs.name < rhs.name
         }),
         SortingMethod(name: NSLocalizedString("Price", comment: "Label for sorting method"), method: { (lhs, rhs) -> Bool in
-            return lhs.price < rhs.price
+            return lhs.price.count < rhs.price.count //Price is based on number of '$' characters in string
         }),
         SortingMethod(name: NSLocalizedString("Rating", comment: "Label for sorting method"), method: { (lhs, rhs) -> Bool in
             return lhs.rating < rhs.rating

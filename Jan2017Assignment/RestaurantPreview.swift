@@ -20,7 +20,8 @@ class RestaurantPreview : UICollectionViewCell {
         self.restaurantName.text = restaurant.name
         self.restaurantPrice.text = String(restaurant.price)
         self.restaurantRating.text = String(restaurant.rating)
-        self.restaurantReview.text = String(restaurant.review)
+        //TODO load review
+        self.restaurantReview.text = "TODO, load review"
     }
     
 }
