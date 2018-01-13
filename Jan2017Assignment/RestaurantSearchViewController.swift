@@ -13,6 +13,8 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
     @IBOutlet weak var searchBar:UISearchBar!
     @IBOutlet weak var sortingPicker:UIPickerView!
     @IBOutlet weak var restaurantPreviews:UICollectionView!
+    
+    var toDisplay:[Restaurant]?
 
     public override func viewWillAppear(_ animated: Bool) {
         searchBar.text = "Ethiopian"
@@ -24,7 +26,12 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
     
     // MARK: - Searchbar
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("Search for \(String(describing: searchBar.text))")
+        if searchBar.text != nil && searchBar.text!.count > 0 {
+            FakeDataProvider.shared.getRestaurantsFor(searchTerm: searchBar.text!, completion: { (restaurants, error) in
+                toDisplay = restaurants
+                restaurantPreviews.reloadData()
+            })
+        }
     }
     
     // MARK: - Sorting
@@ -52,11 +59,21 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
     
     // Mark: - Restaurant Collection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return toDisplay?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: "restaurantPreview", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "restaurantPreview", for: indexPath)
+        
+        if indexPath.row % 3 == 0 {
+            cell.backgroundColor = UIColor.red
+        } else if indexPath.row % 2 == 0 {
+            cell.backgroundColor = UIColor.green
+        } else {
+            cell.backgroundColor = UIColor.blue
+        }
+        
+        return cell
     }
 }
 
