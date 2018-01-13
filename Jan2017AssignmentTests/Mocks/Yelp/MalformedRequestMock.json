@@ -1,0 +1,6 @@
+{
+    "error": {
+        "code": "VALIDATION_ERROR",
+        "description": "Please specify a location or a latitude and longitude"
+    }
+}

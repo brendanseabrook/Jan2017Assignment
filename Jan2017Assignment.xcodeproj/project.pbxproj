@@ -17,6 +17,10 @@
 		A0A35A12200A4C6F00B2DE5C /* RestaurantDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A35A11200A4C6F00B2DE5C /* RestaurantDataProvider.swift */; };
 		A0A35A14200A4FFA00B2DE5C /* RestaurantFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A35A13200A4FFA00B2DE5C /* RestaurantFlowLayout.swift */; };
 		A0A35A16200A517800B2DE5C /* RestaurantPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A35A15200A517800B2DE5C /* RestaurantPreview.swift */; };
+		A0A35A1D200A864900B2DE5C /* NormalMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A0A35A19200A864800B2DE5C /* NormalMock.json */; };
+		A0A35A1E200A864900B2DE5C /* MalformedRequestMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A0A35A1A200A864900B2DE5C /* MalformedRequestMock.json */; };
+		A0A35A1F200A864900B2DE5C /* MalformedResponseMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A0A35A1B200A864900B2DE5C /* MalformedResponseMock.json */; };
+		A0A35A20200A864900B2DE5C /* BadAPIKeyMock.json in Resources */ = {isa = PBXBuildFile; fileRef = A0A35A1C200A864900B2DE5C /* BadAPIKeyMock.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,10 @@
 		A0A35A11200A4C6F00B2DE5C /* RestaurantDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDataProvider.swift; sourceTree = "<group>"; };
 		A0A35A13200A4FFA00B2DE5C /* RestaurantFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantFlowLayout.swift; sourceTree = "<group>"; };
 		A0A35A15200A517800B2DE5C /* RestaurantPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPreview.swift; sourceTree = "<group>"; };
+		A0A35A19200A864800B2DE5C /* NormalMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NormalMock.json; sourceTree = "<group>"; };
+		A0A35A1A200A864900B2DE5C /* MalformedRequestMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MalformedRequestMock.json; sourceTree = "<group>"; };
+		A0A35A1B200A864900B2DE5C /* MalformedResponseMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MalformedResponseMock.json; sourceTree = "<group>"; };
+		A0A35A1C200A864900B2DE5C /* BadAPIKeyMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BadAPIKeyMock.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +112,30 @@
 		A0A35A02200A391E00B2DE5C /* Jan2017AssignmentTests */ = {
 			isa = PBXGroup;
 			children = (
+				A0A35A17200A85F300B2DE5C /* Mocks */,
 				A0A35A03200A391E00B2DE5C /* Jan2017AssignmentTests.swift */,
 				A0A35A05200A391E00B2DE5C /* Info.plist */,
 			);
 			path = Jan2017AssignmentTests;
+			sourceTree = "<group>";
+		};
+		A0A35A17200A85F300B2DE5C /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A0A35A18200A860800B2DE5C /* Yelp */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		A0A35A18200A860800B2DE5C /* Yelp */ = {
+			isa = PBXGroup;
+			children = (
+				A0A35A1C200A864900B2DE5C /* BadAPIKeyMock.json */,
+				A0A35A1A200A864900B2DE5C /* MalformedRequestMock.json */,
+				A0A35A1B200A864900B2DE5C /* MalformedResponseMock.json */,
+				A0A35A19200A864800B2DE5C /* NormalMock.json */,
+			);
+			path = Yelp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +231,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A35A1D200A864900B2DE5C /* NormalMock.json in Resources */,
+				A0A35A1F200A864900B2DE5C /* MalformedResponseMock.json in Resources */,
+				A0A35A20200A864900B2DE5C /* BadAPIKeyMock.json in Resources */,
+				A0A35A1E200A864900B2DE5C /* MalformedRequestMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
