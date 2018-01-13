@@ -15,34 +15,15 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
     @IBOutlet weak var restaurantPreviews:UICollectionView!
     
     var restaurants:[Restaurant]?
-    var toDisplay:[Restaurant]? {
-        set {
-            DispatchQueue.main.sync {
-                if newValue != nil {
-                    restaurants = formatData(toFormat: newValue!)
-                } else {
-                    restaurants = nil
-                }
-                restaurantPreviews.reloadData()
-            }
-        }
-        get {
-            return restaurants
-        }
-    }
     
-    func formatData(toFormat:[Restaurant]?) -> [Restaurant]? {
+    func formatData(toFormat:[Restaurant]?, method:(Restaurant, Restaurant) -> Bool, isReversed:Bool) -> [Restaurant]? {
         
-        if toFormat == nil {
-            return nil
+        var toReturn:[Restaurant]? = toFormat?.sorted(by: method)
+            
+        if isReversed {
+            toReturn = toReturn?.reversed()
         }
-        
-        var toReturn = toFormat!.sorted(by: Restaurant.sortingMethods[sortingPicker.selectedRow(inComponent: 0)].method)
-        
-        if sortingPicker.selectedRow(inComponent: 1) == 1 {
-            toReturn = toReturn.reversed()
-        }
-        
+
         return toReturn
     }
     
@@ -72,8 +53,11 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
                     alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Dismiss error OK"), style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 } else {
-                    self.toDisplay = restaurants
                     DispatchQueue.main.sync {
+                        let method = Restaurant.sortingMethods[self.sortingPicker.selectedRow(inComponent: 0)].method
+                        let isReversed = self.sortingPicker.selectedRow(inComponent: 1) == 1
+                        
+                        self.restaurants = self.formatData(toFormat: restaurants, method: method, isReversed: isReversed)
                         self.restaurantPreviews.reloadData()
                     }
                 }
@@ -105,27 +89,23 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        restaurants = formatData(toFormat: toDisplay)
+        
+        let method = Restaurant.sortingMethods[pickerView.selectedRow(inComponent: 0)].method
+        let isReversed = pickerView.selectedRow(inComponent: 1) == 1
+        
+        restaurants = formatData(toFormat: restaurants, method: method, isReversed: isReversed)
         restaurantPreviews.reloadData()
     }
     
     // Mark: - Restaurant Collection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return toDisplay?.count ?? 0
+        return restaurants?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "restaurantPreview", for: indexPath) as! RestaurantPreview
         
-        if indexPath.row % 3 == 0 {
-            cell.backgroundColor = UIColor.red
-        } else if indexPath.row % 2 == 0 {
-            cell.backgroundColor = UIColor.green
-        } else {
-            cell.backgroundColor = UIColor.blue
-        }
-        
-        cell.populateWith(restaurant: toDisplay![indexPath.row])
+        cell.populateWith(restaurant: restaurants![indexPath.row])
         
         return cell
     }

@@ -17,7 +17,7 @@ class Jan2017AssignmentTests: XCTestCase {
             XCTAssert(restaurants != nil, "Restaurants should be present")
             XCTAssert(restaurants?.count == 3, "There should be 3 restaurants present")
         })
-            
+        
         YelpDataProvider.shared.processResponse(data: YelpTesting.getMockedResponse(forCondition: .BadAPIKey)!) { (restaurants, error) -> (Void) in
             XCTAssert(error != nil, "Should have error")
             XCTAssert(error == .BadAPIKey, "Should be BadAPIKey error not \(String(describing: error!.self))")

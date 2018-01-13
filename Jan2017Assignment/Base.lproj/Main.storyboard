@@ -52,6 +52,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="190" height="97"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cgc-yf-B4Q">
+                                                    <rect key="frame" x="-1" y="0.0" width="190" height="97"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="RestaurantName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIt-yR-w3v">
                                                     <rect key="frame" x="6" y="0.0" width="178" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -83,6 +87,7 @@
                                             </subviews>
                                         </view>
                                         <connections>
+                                            <outlet property="restaurantImage" destination="Cgc-yf-B4Q" id="RmB-Ft-Sdt"/>
                                             <outlet property="restaurantName" destination="TIt-yR-w3v" id="9SV-Jh-LI2"/>
                                             <outlet property="restaurantPrice" destination="WNh-qg-vGr" id="bdH-84-WRb"/>
                                             <outlet property="restaurantRating" destination="UPQ-nw-WM8" id="cHu-qP-2PA"/>

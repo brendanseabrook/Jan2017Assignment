@@ -6,7 +6,7 @@
 //  Copyright © 2018 Brendan Seabrook. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Restaurant {
     var id:String!
@@ -14,6 +14,8 @@ class Restaurant {
     var price:String!
     var rating:Double!
     var image_url:String!
+    var image:UIImage!
+    weak var displayedOnPreview:RestaurantPreview?
     
     init?(record:[String:Any]) {
         self.id = record["id"] as? String
@@ -25,6 +27,27 @@ class Restaurant {
         //The following fields should be requred to be considered valid data. Records that don't have these fields should just be ignored
         guard self.id != nil else {
             return nil
+        }
+        
+        DispatchQueue.main.async {
+            guard let url = URL(string: self.image_url!) else {
+                return
+            }
+            
+            guard let data = try? Data(contentsOf: url) else {
+                return
+            }
+            
+            guard let image = UIImage(data: data) else {
+                return
+            }
+            
+            self.image = image
+            if self.displayedOnPreview != nil {
+                DispatchQueue.main.sync {
+                    self.displayedOnPreview?.restaurantImage.image = self.image
+                }
+            }
         }
     }
     
