@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RestaurantSearchViewController.swift
 //  Jan2017Assignment
 //
 //  Created by Brendan Seabrook on 2018-01-13.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RestaurantSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
