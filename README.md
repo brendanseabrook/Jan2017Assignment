@@ -35,7 +35,7 @@ So normally I would ask the client for way more detail before starting the code 
     * I would have liked to implement the details page as a stack view however I was having some trouble with these components. Will circle back for my own knowledge
     * I did not spend any significant time on content scaling so the app looks bad on iPhone SE of lesser resolutons
     * The details page needs a textured background however photoshop isn't a good use of my time here
-* All in all happy with the result given the time frame
+* All in all happy with the result given the time frame. Any more work and I think I would have gone over the "reasonable" requirement.
 * If the mystery reviewer has any questions about this or any other aspects of my experience, please feel free to get in contact
 
 ## Screen shots
