@@ -41,7 +41,4 @@ class RestaurantPreview : UICollectionViewCell {
         
         restaurant.displayedOnPreview = self
     }
-    
-    
-    
 }

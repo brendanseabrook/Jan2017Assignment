@@ -9,7 +9,15 @@
 import UIKit
 
 class RestaurantInspectViewController : UIViewController {
-    var restaurant:Restaurant?
+    var restaurant:Restaurant? {
+        willSet {
+            newValue?.displayedOnInspect = self
+            newValue?.getInspectionData()
+        }
+        didSet {
+            oldValue?.displayedOnInspect = nil
+        }
+    }
     
     @IBOutlet weak var nav:UINavigationItem!
     @IBOutlet weak var image:UIImageView!
@@ -21,6 +29,10 @@ class RestaurantInspectViewController : UIViewController {
     @IBOutlet weak var phone:UITextView!
     
     override func viewWillAppear(_ animated: Bool) {
+        layout()
+    }
+    
+    func layout() {
         nav.title = restaurant?.name
         image.image = restaurant?.image
         

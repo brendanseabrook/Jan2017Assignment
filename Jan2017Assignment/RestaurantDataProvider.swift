@@ -18,6 +18,7 @@ protocol RestaurantDataProvider {
     func processResponse(data:Data, completion:@escaping ([Restaurant]?,RestaurantDataProviderError?) -> Void)
     func getReviewsForRestaurant(id:String, completion:@escaping ([Review]?,RestaurantDataProviderError?) -> Void)
     func processReviews(data:Data, completion:@escaping ([Review]?, RestaurantDataProviderError?) -> Void)
+    func addDetailsToRestaurant(restaurant:Restaurant, completion:@escaping (Restaurant?, RestaurantDataProviderError?) -> Void)
 }
 
 enum RestaurantDataProviderError {
@@ -56,6 +57,7 @@ extension URL {
 }
 
 class YelpDataProvider : RestaurantDataProvider {
+    
     static var shared: RestaurantDataProvider = YelpDataProvider() as RestaurantDataProvider
     
     var config: URLSessionConfiguration!
@@ -124,7 +126,7 @@ class YelpDataProvider : RestaurantDataProvider {
         
         //TODO map down to optional
         completion(businesses.map({ (business) -> Restaurant in
-            return Restaurant(record: business)!
+            return Restaurant(record: business)
         }), nil)
     }
     
@@ -183,5 +185,52 @@ class YelpDataProvider : RestaurantDataProvider {
         completion(reviews.map({ (review) -> Review in
             return Review(record: review)
         }), nil)
+    }
+    
+    func addDetailsToRestaurant(restaurant:Restaurant, completion:@escaping (Restaurant?, RestaurantDataProviderError?)->(Void)) {
+        guard let url = URL.make(string: "https://api.yelp.com/v3/businesses/\(restaurant.id)", queryComponents: [:]) else {
+            completion(nil, .BadRequest)
+            return
+        }
+        
+        let session = URLSession(configuration: self.config)
+        
+        let dataTask = session.dataTask(with: url, completionHandler: { (data, response, error) in
+            
+            if data == nil || error != nil || (response as? HTTPURLResponse)?.statusCode != 200 {
+                completion(nil, .BadRequest)
+                return
+            }
+            
+            guard let results = (try? JSONSerialization.jsonObject(with: data!, options: .init(rawValue: 0))) as? Dictionary<String,Any> else {
+                completion(nil, .BadResponse)
+                return
+            }
+            
+            if let error = results["error"] as? [String:Any] {
+                if let errorCode = error["code"] as? String {
+                    if errorCode == "TOKEN_INVALID" {
+                        completion(nil, .BadAPIKey)
+                        return
+                    } else if errorCode == "VALIDATION_ERROR" {
+                        completion(nil, .BadRequest)
+                        return
+                    } else { //TODO consider more granular response
+                        completion(nil, .BadResponse)
+                        return
+                    }
+                } else { //TODO consider more granular response
+                    completion(nil, .BadResponse)
+                    return
+                }
+            }
+            
+            
+            
+            
+            completion(restaurant, nil)
+        })
+        
+        dataTask.resume()
     }
 }
