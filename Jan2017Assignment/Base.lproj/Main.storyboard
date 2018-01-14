@@ -18,25 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oyj-5K-Jqj">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="oyj-5K-Jqj">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="w1I-5e-V6f"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="BFU-0Y-iji"/>
                                 </connections>
                             </searchBar>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drG-pH-5Md">
-                                <rect key="frame" x="84" y="120" width="285" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drG-pH-5Md">
+                                <rect key="frame" x="87" y="120" width="294" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="QzG-pp-hJN"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="QK8-Ac-XSG"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="I7m-oL-lRa"/>
                                 </connections>
                             </pickerView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TK2-rx-Sn0">
-                                <rect key="frame" x="0.0" y="184" width="375" height="483"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TK2-rx-Sn0">
+                                <rect key="frame" x="0.0" y="176" width="375" height="491"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nnS-He-G1w" customClass="RestaurantFlowLayout" customModule="Jan2017Assignment" customModuleProvider="target">
                                     <size key="itemSize" width="190" height="97"/>
@@ -101,15 +104,33 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="a8d-i5-YSc"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sort By:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPR-Rf-54o">
-                                <rect key="frame" x="6" y="120" width="76" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPR-Rf-54o">
+                                <rect key="frame" x="6" y="120" width="75" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="Tlm-Rb-r50"/>
+                                    <constraint firstAttribute="height" constant="56" id="XWa-Qi-KC3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dPR-Rf-54o" firstAttribute="top" secondItem="oyj-5K-Jqj" secondAttribute="bottom" id="5RW-Gg-9gy"/>
+                            <constraint firstItem="oyj-5K-Jqj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hlw-ao-NqB"/>
+                            <constraint firstItem="drG-pH-5Md" firstAttribute="leading" secondItem="dPR-Rf-54o" secondAttribute="trailing" constant="6" id="K1F-Vn-qzH"/>
+                            <constraint firstItem="drG-pH-5Md" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dPR-Rf-54o" secondAttribute="trailing" constant="6" id="O8e-Jm-DC3"/>
+                            <constraint firstItem="TK2-rx-Sn0" firstAttribute="top" secondItem="drG-pH-5Md" secondAttribute="bottom" id="SS4-xL-pxR"/>
+                            <constraint firstItem="oyj-5K-Jqj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="V5s-p4-QSw"/>
+                            <constraint firstItem="TK2-rx-Sn0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Xxu-Wr-wQb"/>
+                            <constraint firstItem="dPR-Rf-54o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="6" id="Yrv-bN-cbr"/>
+                            <constraint firstItem="drG-pH-5Md" firstAttribute="top" secondItem="oyj-5K-Jqj" secondAttribute="bottom" id="abg-l1-tNz"/>
+                            <constraint firstItem="drG-pH-5Md" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="6" id="dzL-zz-lAK"/>
+                            <constraint firstItem="oyj-5K-Jqj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="k9G-lH-TK0"/>
+                            <constraint firstItem="TK2-rx-Sn0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="l4Q-93-OZx"/>
+                            <constraint firstItem="TK2-rx-Sn0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zEe-i0-G9D"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="Kx4-lQ-Xan"/>
