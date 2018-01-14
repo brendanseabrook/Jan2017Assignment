@@ -29,12 +29,16 @@ class RestaurantInspectViewController : UIViewController {
     @IBOutlet weak var images:UIImageView!
     @IBOutlet weak var reviews:UITextView!
     
+    var currentPhotoIndex = 0
+    
     override func viewDidLoad() {
         layout()
     }
     
     func layout() {
 
+        currentPhotoIndex = 0
+        
         //TODO would do some size fitting with the text
         self.restaurantName.text = restaurant?.name
         
@@ -65,7 +69,14 @@ class RestaurantInspectViewController : UIViewController {
         
         self.rating.text = restaurant?.ratingAsStars()
         
-        self.images.image = restaurant?.image
+        
+//        if restaurant?.photos == nil {
+//            self.images.image = restaurant?.image
+//        } else {
+//            //self.images.image =
+//        }
+        
+        
         
         self.reviews.text = restaurant?.reviews?.reduce("", { (running, review) -> String in
             if running.count != 0 {
@@ -75,5 +86,35 @@ class RestaurantInspectViewController : UIViewController {
             }
         })
         
+    }
+    
+    func refreshPhoto(ifAtIndex:Int) {
+        if self.restaurant?.photoImages != nil &&
+            ifAtIndex == currentPhotoIndex {
+            DispatchQueue.main.async {
+                let test = self.restaurant!.photoImages![self.currentPhotoIndex]
+                self.images.image = test
+            }
+        }
+    }
+    
+    @IBAction func incrementCarrousel(sender:Any) {
+        if self.restaurant?.photoImages != nil {
+            currentPhotoIndex += 1
+            if currentPhotoIndex == self.restaurant?.photoImages?.count {
+                currentPhotoIndex = 0
+            }
+            self.refreshPhoto(ifAtIndex: currentPhotoIndex)
+        }
+    }
+    
+    @IBAction func decrementCarrousel(sender:Any) {
+        if self.restaurant?.photoImages != nil {
+            currentPhotoIndex -= 1
+            if currentPhotoIndex == -1 {
+                currentPhotoIndex = self.restaurant!.photoImages!.count - 1
+            }
+            self.refreshPhoto(ifAtIndex: currentPhotoIndex)
+        }
     }
 }

@@ -28,6 +28,7 @@ class Restaurant {
     
     var phone:String!
     var photos:[String]?
+    var photoImages:[UIImage?]?
     var is_closed:Bool?
     var url:String?
     
@@ -35,10 +36,10 @@ class Restaurant {
     weak var displayedOnInspect:RestaurantInspectViewController?
     
     init(record:[String:Any]) {
-        self.populate(record: record, getExtras: true)
+        self.populate(record: record)
     }
     
-    func populate(record:[String:Any], getExtras:Bool) {
+    func populate(record:[String:Any]) {
         self.id = record["id"] as? String
         self.name = record["name"] as? String
         self.price = record["price"] as? String ?? ""
@@ -54,41 +55,58 @@ class Restaurant {
             self.addresses = location["display_address"] as? [String]
         }
         
-        if getExtras {
-            //Immediately get more data for reviews
-            DispatchQueue.global().async {
-                YelpDataProvider.shared.getReviewsForRestaurant(id: self.id, completion: { (reviews, error) in
-                    //errors for fetching reviews should not be fatal.
-                    //TODO log error
-                    if error == nil {
-                        self.reviews = reviews
-                        if self.displayedOnPreview != nil {
-                            DispatchQueue.main.async {
-                                self.displayedOnPreview?.restaurantReview.text = self.reviews![0].text
-                            }
+        //Immediately get more data for reviews
+        DispatchQueue.global().async {
+            YelpDataProvider.shared.getReviewsForRestaurant(id: self.id, completion: { (reviews, error) in
+                //errors for fetching reviews should not be fatal.
+                //TODO log error
+                if error == nil {
+                    self.reviews = reviews
+                    if self.displayedOnPreview != nil {
+                        DispatchQueue.main.async {
+                            self.displayedOnPreview?.restaurantReview.text = self.reviews![0].text
                         }
                     }
-                })
+                }
+            })
+        }
+        
+        //Immediately get more data for background image
+        DispatchQueue.global().async {
+            guard let url = URL(string: self.image_url!) else {
+                return
             }
             
-            //Immediately get more data for background image
-            DispatchQueue.global().async {
-                guard let url = URL(string: self.image_url!) else {
-                    return
+            guard let data = try? Data(contentsOf: url) else {
+                return
+            }
+            
+            guard let image = UIImage(data: data) else {
+                return
+            }
+            
+            self.image = image
+            if self.displayedOnPreview != nil {
+                DispatchQueue.main.async {
+                    self.displayedOnPreview?.restaurantImage.image = self.image
                 }
-                
-                guard let data = try? Data(contentsOf: url) else {
-                    return
-                }
-                
-                guard let image = UIImage(data: data) else {
-                    return
-                }
-                
-                self.image = image
-                if self.displayedOnPreview != nil {
-                    DispatchQueue.main.async {
-                        self.displayedOnPreview?.restaurantImage.image = self.image
+            }
+        }
+    }
+    
+    func fetchPhotos() {
+        DispatchQueue.main.sync {
+            
+            if self.photos != nil {
+                self.photoImages = [UIImage]()
+                for i in 0..<self.photos!.count {
+                    self.photoImages!.append(UIImage())
+                    DispatchQueue.global().async {
+                        YelpDataProvider.shared.getData(stringURL: self.photos![i], queryComponents: [:], completion: { (data, error) in
+                            //Log and ignore error. Non-fatal.
+                            self.photoImages![i] = UIImage(data: data!)
+                            self.displayedOnInspect?.refreshPhoto(ifAtIndex: i)
+                        })
                     }
                 }
             }
@@ -97,13 +115,11 @@ class Restaurant {
     
     func getInspectionData() {
         DispatchQueue.global().async {
-            YelpDataProvider.shared.addDetailsToRestaurant(restaurant: self, completion: { (restaurant, error) in
+        YelpDataProvider.shared.addDetailsToRestaurant(restaurant: self, completion: { (restaurant, error) in
                 //errors when getting extra info should not be fatal.
                 //TODO log error
                 if error == nil {
-                    DispatchQueue.main.async {
-                        self.displayedOnInspect?.layout()
-                    }
+                    self.fetchPhotos()
                 }
             })
         }

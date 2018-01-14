@@ -19,6 +19,7 @@ protocol RestaurantDataProvider {
     func getReviewsForRestaurant(id:String, completion:@escaping ([Review]?,RestaurantDataProviderError?) -> Void)
     func processReviews(data:Data, completion:@escaping ([Review]?, RestaurantDataProviderError?) -> Void)
     func addDetailsToRestaurant(restaurant:Restaurant, completion:@escaping (Restaurant?, RestaurantDataProviderError?) -> Void)
+    func getData(stringURL:String, queryComponents:[String:String], completion:@escaping (Data?, RestaurantDataProviderError?) -> Void)
 }
 
 enum RestaurantDataProviderError {
@@ -187,12 +188,32 @@ class YelpDataProvider : RestaurantDataProvider {
         }), nil)
     }
     
-    func addDetailsToRestaurant(restaurant:Restaurant, completion:@escaping (Restaurant?, RestaurantDataProviderError?)->(Void)) {
-        guard let url = URL.make(string: "https://api.yelp.com/v3/businesses/\(restaurant.id)", queryComponents: [:]) else {
+    func getData(stringURL:String, queryComponents:[String:String], completion:@escaping (Data?, RestaurantDataProviderError?) -> Void) {
+        
+        guard let url = URL.make(string:stringURL, queryComponents: queryComponents) else {
             completion(nil, .BadRequest)
             return
         }
         
+        let session = URLSession(configuration: self.config)
+        
+        let dataTask = session.dataTask(with: url, completionHandler: { (data, response, error) in
+            
+            if data == nil || error != nil || (response as? HTTPURLResponse)?.statusCode != 200 {
+                completion(nil, .BadRequest)
+                return
+            }
+            
+            completion(data, nil)
+        })
+        dataTask.resume()
+    }
+    
+    func addDetailsToRestaurant(restaurant:Restaurant, completion:@escaping (Restaurant?, RestaurantDataProviderError?)->(Void)) {
+        guard let url = URL.make(string: "https://api.yelp.com/v3/businesses/\(restaurant.id!)", queryComponents: [:]) else {
+            completion(nil, .BadRequest)
+            return
+        }
         let session = URLSession(configuration: self.config)
         
         let dataTask = session.dataTask(with: url, completionHandler: { (data, response, error) in
@@ -225,9 +246,8 @@ class YelpDataProvider : RestaurantDataProvider {
                 }
             }
             
-            
-            
-            
+            restaurant.photos = results["photos"] as? [String]
+
             completion(restaurant, nil)
         })
         
