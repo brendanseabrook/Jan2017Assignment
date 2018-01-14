@@ -28,6 +28,7 @@ So normally I would ask the client for way more detail before starting the code 
 * I'm not going to support autorotate
 * I'm going to make it look as clean as possible, however the layout would be the first thing I spend more time on if this was a real app
 * Sometimes yelp resonds with different sets of restaurants for the same search. They should look into that.
+* Yelp only gives review previews, so I'm not bothering to try to load anything else in but previews. Makes sense they would keep the best data to themselves.
 
 ## Conclusion
 * The project was completed slightly over my goal time
