@@ -28,14 +28,6 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
 
         return toReturn
     }
-    
-    override var shouldAutorotate: Bool {
-        return false
-    }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.portrait
-    }
 
     public override func viewDidLoad() {
         searchBar.text = "Ethiopian"

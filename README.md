@@ -17,13 +17,14 @@ So normally I would ask the client for way more detail before starting the code 
 
 * I'm not sure how to interperit the "10" restaurants part. Searching for Ethiopian should get more than 10 returns so I'm going forward assuming ~10 on screen at once. Maybe I will try to implement the infinite scroll paging to 10 at a time.
 * The instructions deliberatly use the word grid, which in iOS land points towards using a collection view rather than any kind of list view.
-* It says to *default* the search. This reads differently to *placeholder*. I will be artificially populating the searchbar on load and firing off the event.
+* It says to *default* the search. This reads differently to *placeholder*. I will be artificially populating the searchbar on load and firing off the event on load.
 * I will be using auto-layout and will try to make it as nice looking as possible but I think the assignment issuer will understand that I'm not a graphic designer.
-* I will try to get this all done today (to be reasonable) however if I come across anything which is a learning experience I might as well spend a little bit of time on it.
+* I will try to get this all done today (to be reasonable) however if I come across anything which is a learning experience I might as well spend a little bit of time on it. *Note, I had stuff to do sat evening so this was finished sun afternoon*
 * The result will only be in English however I will still embed userstrings in the translate macro (because thats just a good habit to be in)
 * While I'm going to use unit tests I'm not going to be doing automated UI tests because that would be a little over the top
-* I'm not going to cache any data
+* I'm not going to cache any data unless thats the easy path
 * The app should work on iPad however I'm not going to spend much time optimizing UI for iPad
 * While I should have helpful errors I'm not going to provide specific errors for every status code back from the API
 * I'm not going to support autorotate
 * I'm going to make it look as clean as possible, however the layout would be the first thing I spend more time on if this was a real app
+* Sometimes yelp resonds with different sets of restaurants for the same search. They should look into that.
