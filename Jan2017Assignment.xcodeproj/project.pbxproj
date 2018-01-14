@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A07A4500200BE5BB00DA45DD /* Simulator Screen Shot - iPhone 8 - 2018-01-14 at 14.21.24.png in Resources */ = {isa = PBXBuildFile; fileRef = A07A44FE200BE5BA00DA45DD /* Simulator Screen Shot - iPhone 8 - 2018-01-14 at 14.21.24.png */; };
+		A07A4501200BE5BB00DA45DD /* Simulator Screen Shot - iPhone 8 - 2018-01-14 at 14.22.31.png in Resources */ = {isa = PBXBuildFile; fileRef = A07A44FF200BE5BA00DA45DD /* Simulator Screen Shot - iPhone 8 - 2018-01-14 at 14.22.31.png */; };
 		A0A359EF200A391E00B2DE5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A359EE200A391E00B2DE5C /* AppDelegate.swift */; };
 		A0A359F1200A391E00B2DE5C /* RestaurantSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A359F0200A391E00B2DE5C /* RestaurantSearchViewController.swift */; };
 		A0A359F4200A391E00B2DE5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0A359F2200A391E00B2DE5C /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A07A44FE200BE5BA00DA45DD /* Simulator Screen Shot - iPhone 8 - 2018-01-14 at 14.21.24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 8 - 2018-01-14 at 14.21.24.png"; sourceTree = "<group>"; };
+		A07A44FF200BE5BA00DA45DD /* Simulator Screen Shot - iPhone 8 - 2018-01-14 at 14.22.31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone 8 - 2018-01-14 at 14.22.31.png"; sourceTree = "<group>"; };
 		A0A359EB200A391E00B2DE5C /* Jan2017Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jan2017Assignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0A359EE200A391E00B2DE5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0A359F0200A391E00B2DE5C /* RestaurantSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSearchViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 				A0A359ED200A391E00B2DE5C /* Jan2017Assignment */,
 				A0A35A02200A391E00B2DE5C /* Jan2017AssignmentTests */,
 				A0A359EC200A391E00B2DE5C /* Products */,
+				A07A44FE200BE5BA00DA45DD /* Simulator Screen Shot - iPhone 8 - 2018-01-14 at 14.21.24.png */,
+				A07A44FF200BE5BA00DA45DD /* Simulator Screen Shot - iPhone 8 - 2018-01-14 at 14.22.31.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -225,8 +231,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0A359F9200A391E00B2DE5C /* LaunchScreen.storyboard in Resources */,
+				A07A4500200BE5BB00DA45DD /* Simulator Screen Shot - iPhone 8 - 2018-01-14 at 14.21.24.png in Resources */,
 				A0A359F6200A391E00B2DE5C /* Assets.xcassets in Resources */,
 				A0A359F4200A391E00B2DE5C /* Main.storyboard in Resources */,
+				A07A4501200BE5BB00DA45DD /* Simulator Screen Shot - iPhone 8 - 2018-01-14 at 14.22.31.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

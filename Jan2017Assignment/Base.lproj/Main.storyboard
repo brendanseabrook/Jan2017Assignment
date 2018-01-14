@@ -29,7 +29,7 @@
                                 </connections>
                             </searchBar>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drG-pH-5Md">
-                                <rect key="frame" x="87" y="120" width="294" height="56"/>
+                                <rect key="frame" x="72" y="120" width="309" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="QzG-pp-hJN"/>
                                 </constraints>
@@ -104,10 +104,10 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="a8d-i5-YSc"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort By:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPR-Rf-54o">
-                                <rect key="frame" x="6" y="120" width="75" height="56"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPR-Rf-54o">
+                                <rect key="frame" x="6" y="120" width="58" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="Tlm-Rb-r50"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="58" id="Tlm-Rb-r50"/>
                                     <constraint firstAttribute="height" constant="56" id="XWa-Qi-KC3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -119,7 +119,7 @@
                         <constraints>
                             <constraint firstItem="dPR-Rf-54o" firstAttribute="top" secondItem="oyj-5K-Jqj" secondAttribute="bottom" id="5RW-Gg-9gy"/>
                             <constraint firstItem="oyj-5K-Jqj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hlw-ao-NqB"/>
-                            <constraint firstItem="drG-pH-5Md" firstAttribute="leading" secondItem="dPR-Rf-54o" secondAttribute="trailing" constant="6" id="K1F-Vn-qzH"/>
+                            <constraint firstItem="drG-pH-5Md" firstAttribute="leading" secondItem="dPR-Rf-54o" secondAttribute="trailing" constant="8" id="K1F-Vn-qzH"/>
                             <constraint firstItem="drG-pH-5Md" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dPR-Rf-54o" secondAttribute="trailing" constant="6" id="O8e-Jm-DC3"/>
                             <constraint firstItem="TK2-rx-Sn0" firstAttribute="top" secondItem="drG-pH-5Md" secondAttribute="bottom" id="SS4-xL-pxR"/>
                             <constraint firstItem="oyj-5K-Jqj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="V5s-p4-QSw"/>
@@ -158,7 +158,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="wRG-pA-4U7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="URL" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oKu-hW-5kI">

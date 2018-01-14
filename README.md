@@ -28,3 +28,15 @@ So normally I would ask the client for way more detail before starting the code 
 * I'm not going to support autorotate
 * I'm going to make it look as clean as possible, however the layout would be the first thing I spend more time on if this was a real app
 * Sometimes yelp resonds with different sets of restaurants for the same search. They should look into that.
+
+## Conclusion
+* The project was completed slightly over my goal time
+* I would spend more time on making it look nice, however as I'm being judged less on UX I'm going to stop here
+    * I would have liked to implement the details page as a stack view however I was having some trouble with these components. Will circle back for my own knowledge
+    * I did not spend any significant time on content scaling so the app looks bad on iPhone SE of lesser resolutons
+    * The details page needs a textured background however photoshop isn't a good use of my time here
+* All in all happy with the result given the time frame
+* If the mystery reviewer has any questions about this or any other aspects of my experience, please feel free to get in contact
+
+
+
