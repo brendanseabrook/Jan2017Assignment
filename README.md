@@ -27,8 +27,9 @@ So normally I would ask the client for way more detail before starting the code 
 * While I should have helpful errors I'm not going to provide specific errors for every status code back from the API
 * I'm not going to support autorotate
 * I'm going to make it look as clean as possible, however the layout would be the first thing I spend more time on if this was a real app
-* Sometimes yelp resonds with different sets of restaurants for the same search. They should look into that.
-* Yelp only gives review previews, so I'm not bothering to try to load anything else in but previews. Makes sense they would keep the best data to themselves.
+* Sometimes yelp resonds with different sets of restaurants for the same search. They should look into that
+* Yelp only gives review previews, so I'm not bothering to try to load anything else in but previews. Makes sense they would keep the best data to themselves
+* Many restaurants dont have 10 photos, so I can't guarantee 10 photos. I have chosen to do a basic UIImage with back and forward buttons that can display any amount of photos
 
 ## Conclusion
 * The project was completed slightly over my goal time
@@ -36,6 +37,8 @@ So normally I would ask the client for way more detail before starting the code 
     * I would have liked to implement the details page as a stack view however I was having some trouble with these components. Will circle back for my own knowledge
     * I did not spend any significant time on content scaling so the app looks bad on iPhone SE of lesser resolutons
     * The details page needs a textured background however photoshop isn't a good use of my time here
+    * I would have put default message in the collection view area before you search
+    * On the details page I would have used a static UIImage of a spinner for while the images are lazy loading
 * All in all happy with the result given the time frame. Any more work and I think I would have gone over the "reasonable" requirement.
 * If the mystery reviewer has any questions about this or any other aspects of my experience, please feel free to get in contact
 
