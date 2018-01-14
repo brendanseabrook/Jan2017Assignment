@@ -148,7 +148,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Phone" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kRF-Te-CRH">
                                 <rect key="frame" x="0.0" y="174" width="375" height="40"/>
@@ -160,49 +159,74 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Address" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="veg-KT-554">
-                                <rect key="frame" x="0.0" y="213" width="375" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Address" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="veg-KT-554">
+                                <rect key="frame" x="0.0" y="214" width="375" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="oPB-ub-WLJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Price" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uoz-Rc-U1P">
-                                <rect key="frame" x="0.0" y="285" width="375" height="40"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Price" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uoz-Rc-U1P">
+                                <rect key="frame" x="0.0" y="294" width="375" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JCj-9E-l3A"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Rating" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SrR-S7-U74">
-                                <rect key="frame" x="0.0" y="327" width="375" height="40"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Rating" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SrR-S7-U74">
+                                <rect key="frame" x="0.0" y="334" width="375" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="AXM-U3-8Ml"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uym-xK-nXj">
-                                <rect key="frame" x="0.0" y="375" width="375" height="128"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uym-xK-nXj">
+                                <rect key="frame" x="0.0" y="374" width="375" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="P03-Or-MpR"/>
+                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Reviews" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gPa-n1-aWj">
-                                <rect key="frame" x="0.0" y="519" width="375" height="128"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reviews" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gPa-n1-aWj">
+                                <rect key="frame" x="0.0" y="502" width="375" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="n8E-ws-wpB"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="uym-xK-nXj" firstAttribute="trailing" secondItem="HSC-iU-53k" secondAttribute="trailing" id="1tE-LB-0ke"/>
+                            <constraint firstItem="uoz-Rc-U1P" firstAttribute="top" secondItem="veg-KT-554" secondAttribute="bottom" id="2OM-Jo-alF"/>
                             <constraint firstItem="oKu-hW-5kI" firstAttribute="leading" secondItem="f5h-Rd-NEt" secondAttribute="leading" id="5HO-6y-wYW"/>
+                            <constraint firstItem="uym-xK-nXj" firstAttribute="top" secondItem="SrR-S7-U74" secondAttribute="bottom" id="712-Mi-KfB"/>
+                            <constraint firstItem="SrR-S7-U74" firstAttribute="trailing" secondItem="HSC-iU-53k" secondAttribute="trailing" id="GLI-Rt-9SO"/>
                             <constraint firstItem="f5h-Rd-NEt" firstAttribute="trailing" secondItem="HSC-iU-53k" secondAttribute="trailing" id="P5B-6A-qsr"/>
                             <constraint firstItem="kRF-Te-CRH" firstAttribute="top" secondItem="oKu-hW-5kI" secondAttribute="bottom" id="Pcz-HN-nZK"/>
+                            <constraint firstItem="uym-xK-nXj" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="Sjh-Ur-nje"/>
                             <constraint firstItem="kRF-Te-CRH" firstAttribute="trailing" secondItem="HSC-iU-53k" secondAttribute="trailing" id="UO8-gV-8an"/>
+                            <constraint firstItem="uoz-Rc-U1P" firstAttribute="trailing" secondItem="HSC-iU-53k" secondAttribute="trailing" id="WpX-er-61p"/>
+                            <constraint firstItem="SrR-S7-U74" firstAttribute="top" secondItem="uoz-Rc-U1P" secondAttribute="bottom" id="XyB-EL-S33"/>
+                            <constraint firstItem="uoz-Rc-U1P" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="cEC-g1-kad"/>
                             <constraint firstItem="kRF-Te-CRH" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="dDF-n3-TnQ"/>
+                            <constraint firstItem="veg-KT-554" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="fYs-SQ-jRN"/>
+                            <constraint firstItem="gPa-n1-aWj" firstAttribute="top" secondItem="uym-xK-nXj" secondAttribute="bottom" id="gGy-CE-SgQ"/>
+                            <constraint firstItem="veg-KT-554" firstAttribute="trailing" secondItem="HSC-iU-53k" secondAttribute="trailing" id="hoa-da-VxA"/>
                             <constraint firstItem="f5h-Rd-NEt" firstAttribute="top" secondItem="HSC-iU-53k" secondAttribute="top" id="mYe-sA-1Wk"/>
                             <constraint firstItem="f5h-Rd-NEt" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="mcF-Iw-Djy"/>
                             <constraint firstItem="oKu-hW-5kI" firstAttribute="top" secondItem="f5h-Rd-NEt" secondAttribute="bottom" id="oZu-h2-5et"/>
+                            <constraint firstItem="SrR-S7-U74" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="qnc-rW-MTQ"/>
+                            <constraint firstItem="veg-KT-554" firstAttribute="top" secondItem="kRF-Te-CRH" secondAttribute="bottom" id="qwl-4b-zNu"/>
+                            <constraint firstItem="gPa-n1-aWj" firstAttribute="trailing" secondItem="HSC-iU-53k" secondAttribute="trailing" id="rtI-tG-eFN"/>
+                            <constraint firstItem="gPa-n1-aWj" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="uTU-Oe-9Il"/>
                             <constraint firstItem="oKu-hW-5kI" firstAttribute="trailing" secondItem="HSC-iU-53k" secondAttribute="trailing" id="y31-nY-u0E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HSC-iU-53k"/>

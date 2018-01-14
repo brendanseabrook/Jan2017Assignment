@@ -18,6 +18,14 @@ class Restaurant {
     var image:UIImage?
     var reviews:[Review]?
     var addresses:[String]?
+    var displayAddress:String? {
+        if addresses == nil {
+            return nil
+        } else {
+            return addresses?.joined(separator: ", ")
+        }
+    }
+    
     var phone:String!
     var photos:[String]?
     var is_closed:Bool?
