@@ -20,29 +20,31 @@ class RestaurantInspectViewController : UIViewController {
     }
     
     @IBOutlet weak var nav:UINavigationItem!
-    @IBOutlet weak var image:UIImageView!
-    @IBOutlet weak var price:UILabel!
-    @IBOutlet weak var priceLabel:UILabel!
-    @IBOutlet weak var rating:UILabel!
-    @IBOutlet weak var ratingLabel:UILabel!
-    @IBOutlet weak var address:UILabel!
+    @IBOutlet weak var restaurantName:UITextView!
+    @IBOutlet weak var url:UITextView!
     @IBOutlet weak var phone:UITextView!
+    @IBOutlet weak var address:UITextView!
+    @IBOutlet weak var price:UITextView!
+    @IBOutlet weak var rating:UITextView!
+    @IBOutlet weak var images:UIImageView!
+    @IBOutlet weak var reviews:UITextView!
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLoad() {
         layout()
     }
     
     func layout() {
-        nav.title = restaurant?.name
-        image.image = restaurant?.image
+
+        //TODO would do some size fitting with the text
+        self.restaurantName.text = restaurant?.name
         
-        priceLabel.isHidden = restaurant!.price.count < 1
-        price.text = restaurant?.price
-        rating.text = restaurant?.ratingAsStars()
-        phone.text = restaurant?.phone
-        
-        if restaurant?.addresses != nil && restaurant!.addresses!.count > 0 {
-            address.text = restaurant!.addresses!.joined(separator: ", ")
+        if restaurant?.url == nil {
+            self.url.text = NSLocalizedString("No Website", comment: "Text describing the restaurant has no website")
+        } else {
+            self.url.text = NSLocalizedString("Website", comment: "Link word for restaurants website")
+            self.url.textColor = UIColor(red: 0, green: 122/255, blue: 1, alpha: 1)
         }
+        
+        
     }
 }

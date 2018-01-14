@@ -26,3 +26,4 @@ So normally I would ask the client for way more detail before starting the code 
 * The app should work on iPad however I'm not going to spend much time optimizing UI for iPad
 * While I should have helpful errors I'm not going to provide specific errors for every status code back from the API
 * I'm not going to support autorotate
+* I'm going to make it look as clean as possible, however the layout would be the first thing I spend more time on if this was a real app
