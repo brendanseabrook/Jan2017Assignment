@@ -38,5 +38,9 @@ So normally I would ask the client for way more detail before starting the code 
 * All in all happy with the result given the time frame
 * If the mystery reviewer has any questions about this or any other aspects of my experience, please feel free to get in contact
 
+## Screen shots
 
+![Search screen](https://github.com/brendanseabrook/Jan2017Assignment/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202018-01-14%20at%2014.21.24.png?raw=true)
+
+![Details screen](https://github.com/brendanseabrook/Jan2017Assignment/blob/master/Simulator%20Screen%20Shot%20-%20iPhone%208%20-%202018-01-14%20at%2014.22.31.png?raw=true)
 
