@@ -30,6 +30,7 @@ So normally I would ask the client for way more detail before starting the code 
 * Sometimes yelp resonds with different sets of restaurants for the same search. They should look into that
 * Yelp only gives review previews, so I'm not bothering to try to load anything else in but previews. Makes sense they would keep the best data to themselves
 * Many restaurants dont have 10 photos, so I can't guarantee 10 photos. I have chosen to do a basic UIImage with back and forward buttons that can display any amount of photos
+* I don't normally forgo branches in git however for such a small 1 person project they're overkill. I will branch if I need a heavy refactor.
 
 ## Conclusion
 * The project was completed slightly over my goal time
