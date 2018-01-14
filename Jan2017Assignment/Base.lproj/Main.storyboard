@@ -186,14 +186,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uym-xK-nXj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uym-xK-nXj">
                                 <rect key="frame" x="0.0" y="374" width="375" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="P03-Or-MpR"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reviews" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gPa-n1-aWj">
-                                <rect key="frame" x="0.0" y="502" width="375" height="128"/>
+                                <rect key="frame" x="0.0" y="512" width="375" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="n8E-ws-wpB"/>
@@ -218,7 +218,7 @@
                             <constraint firstItem="uoz-Rc-U1P" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="cEC-g1-kad"/>
                             <constraint firstItem="kRF-Te-CRH" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="dDF-n3-TnQ"/>
                             <constraint firstItem="veg-KT-554" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="fYs-SQ-jRN"/>
-                            <constraint firstItem="gPa-n1-aWj" firstAttribute="top" secondItem="uym-xK-nXj" secondAttribute="bottom" id="gGy-CE-SgQ"/>
+                            <constraint firstItem="gPa-n1-aWj" firstAttribute="top" secondItem="uym-xK-nXj" secondAttribute="bottom" constant="10" id="gGy-CE-SgQ"/>
                             <constraint firstItem="veg-KT-554" firstAttribute="trailing" secondItem="HSC-iU-53k" secondAttribute="trailing" id="hoa-da-VxA"/>
                             <constraint firstItem="f5h-Rd-NEt" firstAttribute="top" secondItem="HSC-iU-53k" secondAttribute="top" id="mYe-sA-1Wk"/>
                             <constraint firstItem="f5h-Rd-NEt" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="mcF-Iw-Djy"/>
