@@ -37,11 +37,8 @@ class RestaurantSearchViewController: UIViewController, UISearchBarDelegate, UIP
         return UIInterfaceOrientationMask.portrait
     }
 
-    public override func viewWillAppear(_ animated: Bool) {
+    public override func viewDidLoad() {
         searchBar.text = "Ethiopian"
-    }
-    
-    public override func viewDidAppear(_ animated: Bool) {
         self.searchBarSearchButtonClicked(self.searchBar)
     }
     

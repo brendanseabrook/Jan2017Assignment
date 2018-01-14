@@ -137,7 +137,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="wRG-pA-4U7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="URL" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oKu-hW-5kI">
@@ -160,49 +160,49 @@
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Address" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="veg-KT-554">
-                                <rect key="frame" x="0.0" y="214" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="214" width="375" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="oPB-ub-WLJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="oPB-ub-WLJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Price" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uoz-Rc-U1P">
-                                <rect key="frame" x="0.0" y="294" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="254" width="375" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="JCj-9E-l3A"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Rating" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SrR-S7-U74">
-                                <rect key="frame" x="0.0" y="334" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="294" width="375" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="AXM-U3-8Ml"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uym-xK-nXj">
-                                <rect key="frame" x="0.0" y="374" width="375" height="128"/>
+                                <rect key="frame" x="0.0" y="334" width="375" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="P03-Or-MpR"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Reviews" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gPa-n1-aWj">
-                                <rect key="frame" x="0.0" y="512" width="375" height="128"/>
+                                <rect key="frame" x="0.0" y="462" width="375" height="205"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="n8E-ws-wpB"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="n8E-ws-wpB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1B-jN-lhU">
-                                <rect key="frame" x="329" y="417" width="30" height="42"/>
+                                <rect key="frame" x="329" y="377" width="30" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="⇨"/>
                                 <connections>
@@ -210,7 +210,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9d-rf-Nf5">
-                                <rect key="frame" x="16" y="417" width="30" height="42"/>
+                                <rect key="frame" x="16" y="377" width="30" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="⇦"/>
                                 <connections>
@@ -218,6 +218,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uym-xK-nXj" firstAttribute="trailing" secondItem="HSC-iU-53k" secondAttribute="trailing" id="1tE-LB-0ke"/>
                             <constraint firstItem="uoz-Rc-U1P" firstAttribute="top" secondItem="veg-KT-554" secondAttribute="bottom" id="2OM-Jo-alF"/>
@@ -236,7 +237,7 @@
                             <constraint firstItem="uoz-Rc-U1P" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="cEC-g1-kad"/>
                             <constraint firstItem="kRF-Te-CRH" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="dDF-n3-TnQ"/>
                             <constraint firstItem="veg-KT-554" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="fYs-SQ-jRN"/>
-                            <constraint firstItem="gPa-n1-aWj" firstAttribute="top" secondItem="uym-xK-nXj" secondAttribute="bottom" constant="10" id="gGy-CE-SgQ"/>
+                            <constraint firstItem="gPa-n1-aWj" firstAttribute="top" secondItem="uym-xK-nXj" secondAttribute="bottom" id="gGy-CE-SgQ"/>
                             <constraint firstItem="veg-KT-554" firstAttribute="trailing" secondItem="HSC-iU-53k" secondAttribute="trailing" id="hoa-da-VxA"/>
                             <constraint firstItem="f5h-Rd-NEt" firstAttribute="top" secondItem="HSC-iU-53k" secondAttribute="top" id="mYe-sA-1Wk"/>
                             <constraint firstItem="f5h-Rd-NEt" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="mcF-Iw-Djy"/>
@@ -244,6 +245,7 @@
                             <constraint firstItem="SrR-S7-U74" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="qnc-rW-MTQ"/>
                             <constraint firstItem="veg-KT-554" firstAttribute="top" secondItem="kRF-Te-CRH" secondAttribute="bottom" id="qwl-4b-zNu"/>
                             <constraint firstItem="gPa-n1-aWj" firstAttribute="trailing" secondItem="HSC-iU-53k" secondAttribute="trailing" id="rtI-tG-eFN"/>
+                            <constraint firstItem="HSC-iU-53k" firstAttribute="bottom" secondItem="gPa-n1-aWj" secondAttribute="bottom" id="tyu-3n-ITE"/>
                             <constraint firstItem="gPa-n1-aWj" firstAttribute="leading" secondItem="HSC-iU-53k" secondAttribute="leading" id="uTU-Oe-9Il"/>
                             <constraint firstItem="b9d-rf-Nf5" firstAttribute="centerY" secondItem="uym-xK-nXj" secondAttribute="centerY" id="waJ-LO-DXW"/>
                             <constraint firstItem="oKu-hW-5kI" firstAttribute="trailing" secondItem="HSC-iU-53k" secondAttribute="trailing" id="y31-nY-u0E"/>

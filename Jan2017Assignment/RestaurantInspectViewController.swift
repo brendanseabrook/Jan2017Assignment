@@ -69,15 +69,6 @@ class RestaurantInspectViewController : UIViewController {
         
         self.rating.text = restaurant?.ratingAsStars()
         
-        
-//        if restaurant?.photos == nil {
-//            self.images.image = restaurant?.image
-//        } else {
-//            //self.images.image =
-//        }
-        
-        
-        
         self.reviews.text = restaurant?.reviews?.reduce("", { (running, review) -> String in
             if running.count != 0 {
                 return running + "\n\n" + review.text!

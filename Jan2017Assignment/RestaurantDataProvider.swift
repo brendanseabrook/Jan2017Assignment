@@ -72,27 +72,39 @@ class YelpDataProvider : RestaurantDataProvider {
     }
     
     func getRestaurantsFor(searchTerm: String, completion: @escaping ([Restaurant]?, RestaurantDataProviderError?) -> Void) {
-        guard let url = URL.make(string: "https://api.yelp.com/v3/businesses/search", queryComponents: [
-                "term" : searchTerm,
-                "location" : "Toronto"
-            ]) else {
-                completion(nil, .BadRequest)
-                return
+        
+        self.getData(stringURL: "https://api.yelp.com/v3/businesses/search", queryComponents: [
+                            "term" : searchTerm,
+                            "location" : "Toronto"
+        ]) { (data, error) in
+            if data == nil || error != nil {
+                completion(nil, error)
+            } else {
+                self.processResponse(data: data!, completion: completion)
+            }
         }
         
-        let session = URLSession(configuration: self.config)
-        
-        let dataTask = session.dataTask(with: url, completionHandler: { (data, response, error) in
-            
-            if data == nil || error != nil || (response as? HTTPURLResponse)?.statusCode != 200 {
-                completion(nil, .BadRequest)
-                return
-            }
-            
-            self.processResponse(data: data!, completion: completion)
-        })
-        
-        dataTask.resume()
+//        guard let url = URL.make(string: "https://api.yelp.com/v3/businesses/search", queryComponents: [
+//                "term" : searchTerm,
+//                "location" : "Toronto"
+//            ]) else {
+//                completion(nil, .BadRequest)
+//                return
+//        }
+//
+//        let session = URLSession(configuration: self.config)
+//
+//        let dataTask = session.dataTask(with: url, completionHandler: { (data, response, error) in
+//
+//            if data == nil || error != nil || (response as? HTTPURLResponse)?.statusCode != 200 {
+//                completion(nil, .BadRequest)
+//                return
+//            }
+//
+//            self.processResponse(data: data!, completion: completion)
+//        })
+//
+//        dataTask.resume()
     }
     
     internal func processResponse(data: Data, completion: @escaping ([Restaurant]?, RestaurantDataProviderError?) -> Void) {
